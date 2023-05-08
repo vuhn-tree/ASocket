@@ -42,4 +42,6 @@ void rainbow(uint8_t wait) {
   }
 }
 
-void loop() { rainbow(20); }
+void loop() { 
+  rainbow(20); 
+}
