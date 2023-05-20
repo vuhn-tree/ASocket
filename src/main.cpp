@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
 #include <M5Atom.h>
-
+#include <GlobalDefines.h>
 
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(
