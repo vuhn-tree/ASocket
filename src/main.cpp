@@ -1,8 +1,7 @@
 #include <Adafruit_NeoPixel.h>
 #include <M5Atom.h>
 
-#define PIN 27
-#define NUMPIXELS 1
+
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(
     NUMPIXELS, PIN,
