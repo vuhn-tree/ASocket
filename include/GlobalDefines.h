@@ -4,4 +4,4 @@
 #define PIN 27
 #define NUMPIXELS 1
 
-#endif GLOBAL_DEFINES_H
+#endif GLOBAL_DEFINES_H // GLOBAL_DEFINES_H
