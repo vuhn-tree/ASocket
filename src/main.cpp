@@ -17,7 +17,7 @@ static constexpr char text[] = "Hello world !";
 
 void setup() {
   auto cfg = M5.config();
-  cfg.external_display.unit_lcd       = true;  // default=true. use UnitLCD
+    cfg.external_display.unit_oled      = true;  // default=true. use UnitOLED
   M5.begin(cfg);
 
   // Get the number of available displays
