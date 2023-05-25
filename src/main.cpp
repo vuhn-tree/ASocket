@@ -38,7 +38,12 @@ void setup() {
       m5::board_t::board_M5AtomDisplay,
     m5::board_t::board_M5UnitOLED,
   } );
+  int index_unit_oled = M5.getDisplayIndex(m5::board_t::board_M5UnitOLED);
+  if (index_unit_oled >= 0) {
+    M5.Displays(index_unit_oled).print("This is Unit OLED\n");
+  }
 
+    vTaskDelay(5000);
 
   // M5.begin();      // Init M5Atom
   // pixels.begin();  // Init the NeoPixel library
