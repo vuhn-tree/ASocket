@@ -2,12 +2,12 @@
 // #include <M5Atom.h>
 #include <GlobalDefines.h>
 
-#include <M5UnitOLED.h>
+// #include <M5UnitOLED.h>
 #include <M5Unified.h>
 
-M5UnitOLED display;
+// M5UnitOLED display;
 
-M5Canvas canvas(&display);
+// M5Canvas canvas(&display);
 
 static constexpr char text[] = "Hello world !";
 
