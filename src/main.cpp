@@ -1,4 +1,4 @@
-#include <Adafruit_NeoPixel.h>
+// #include <Adafruit_NeoPixel.h>
 // #include <M5Atom.h>
 #include <GlobalDefines.h>
 
@@ -11,9 +11,9 @@
 
 static constexpr char text[] = "Hello world !";
 
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(
-    NUMPIXELS, PIN,
-    NEO_GRB + NEO_KHZ800);  // set number of LEDs, pin number, LED type.
+// Adafruit_NeoPixel pixels = Adafruit_NeoPixel(
+//     NUMPIXELS, PIN,
+//     NEO_GRB + NEO_KHZ800);  // set number of LEDs, pin number, LED type.
 
 void setup() {
   auto cfg = M5.config();
@@ -27,8 +27,8 @@ void setup() {
   // All displays are available in M5.Displays.
   // ※ Note that the order of which displays are numbered is the order in which they are detected, so the order may change.
 
-  int textsize = M5.Displays(i).height() / 60;
-  if (textsize == 0) { textsize = 1; }
+    int textsize = M5.Displays(i).height() / 60;
+    if (textsize == 0) { textsize = 1; }
     M5.Displays(i).setTextSize(textsize);
     M5.Displays(i).printf("No.%d\n", i);
   }
@@ -36,16 +36,12 @@ void setup() {
   M5.setPrimaryDisplayType( {
       m5::board_t::board_M5ModuleDisplay,
       m5::board_t::board_M5AtomDisplay,
-//    m5::board_t::board_M5ModuleRCA,
-//    m5::board_t::board_M5UnitGLASS,
     m5::board_t::board_M5UnitOLED,
-//    m5::board_t::board_M5UnitLCD,
-//    m5::board_t::board_M5UnitRCA,
   } );
 
 
   // M5.begin();      // Init M5Atom
-  pixels.begin();  // Init the NeoPixel library
+  // pixels.begin();  // Init the NeoPixel library
 }
 
 // // Input a value 0 to 255 to get a color value.
