@@ -45,7 +45,7 @@ void setup() {
 
     vTaskDelay(5000);
 
-  // M5.begin();      // Init M5Atom
+  M5.begin();      // Init M5Atom
   // pixels.begin();  // Init the NeoPixel library
 }
 
