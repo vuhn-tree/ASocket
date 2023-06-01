@@ -200,27 +200,9 @@ void setup(void)
   int index_unit_oled = M5.getDisplayIndex(m5::board_t::board_M5UnitOLED);
   int index_unit_lcd = M5.getDisplayIndex(m5::board_t::board_M5UnitLCD);
   int index_unit_rca = M5.getDisplayIndex(m5::board_t::board_M5UnitRCA);
-
-  if (index_module_display >= 0) {
-    M5.Displays(index_module_display).print("This is Module Display\n");
-  }
-  if (index_atom_display >= 0) {
-    M5.Displays(index_atom_display).print("This is Atom Display\n");
-  }
-  if (index_module_rca >= 0) {
-    M5.Displays(index_module_rca).print("This is Module RCA\n");
-  }
-  if (index_unit_glass >= 0) {
-    M5.Displays(index_unit_glass).print("This is Unit GLASS\n");
-  }
+  
   if (index_unit_oled >= 0) {
     M5.Displays(index_unit_oled).print("This is Unit OLED\n");
-  }
-  if (index_unit_lcd >= 0) {
-    M5.Displays(index_unit_lcd).print("This is Unit LCD\n");
-  }
-  if (index_unit_rca >= 0) {
-    M5.Displays(index_unit_rca).print("This is Unit RCA\n");
   }
   vTaskDelay(5000);
 }
@@ -253,22 +235,3 @@ void loop(void)
     draw_function(&M5.Displays(i));
   }
 }
-
-// for ESP-IDF compat
-#if !defined ( ARDUINO )
-extern "C" {
-  void loopTask(void*)
-  {
-    setup();
-    for (;;) {
-      loop();
-    }
-    vTaskDelete(NULL);
-  }
-
-  void app_main()
-  {
-    xTaskCreatePinnedToCore(loopTask, "loopTask", 8192, NULL, 1, NULL, 1);
-  }
-}
-#endif
