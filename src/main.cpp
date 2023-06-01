@@ -134,13 +134,9 @@ void setup(void)
   auto cfg = M5.config();
 
   // external display setting. (Pre-include required)
-  cfg.external_display.module_display = true;  // default=true. use ModuleDisplay
-  cfg.external_display.atom_display   = true;  // default=true. use AtomDisplay
-  cfg.external_display.unit_glass     = true;  // default=true. use UnitGLASS
+  
   cfg.external_display.unit_oled      = true;  // default=true. use UnitOLED
-  cfg.external_display.unit_lcd       = true;  // default=true. use UnitLCD
-  cfg.external_display.unit_rca       = true;  // default=true. use UnitRCA VideoOutput
-  cfg.external_display.module_rca     = true;  // default=true. use ModuleRCA VideoOutput
+  
 
 /*
  Display with auto-detection
