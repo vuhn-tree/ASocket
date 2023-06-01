@@ -184,7 +184,7 @@ void setup(void)
   if (index_unit_oled >= 0) {
     M5.Displays(index_unit_oled).print("This is Unit OLED\n");
   }
-  vTaskDelay(5000);
+  vTaskDelay(50000);
 }
 
 
