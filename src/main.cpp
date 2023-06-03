@@ -160,11 +160,7 @@ void setup(void)
   M5.setPrimaryDisplayType( {
       m5::board_t::board_M5ModuleDisplay,
       m5::board_t::board_M5AtomDisplay,
-//    m5::board_t::board_M5ModuleRCA,
-//    m5::board_t::board_M5UnitGLASS,
 //    m5::board_t::board_M5UnitOLED,
-//    m5::board_t::board_M5UnitLCD,
-//    m5::board_t::board_M5UnitRCA,
   } );
 
 
