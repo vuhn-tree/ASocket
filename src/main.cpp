@@ -92,8 +92,8 @@
 
 #endif
 
-#include <M5UnitOLED.h>
 #include <M5Unified.h>
+#include <M5UnitOLED.h>
 
 void setup(void) {
   auto cfg = M5.config();
@@ -176,7 +176,7 @@ void draw_function(LovyanGFX* gfx) {
 }
 
 void loop(void) {
-  vTaskDelay(1);
+  vTaskDelay(10);
 
   for (int i = 0; i < M5.getDisplayCount(); ++i) {
     int x = rand() % M5.Displays(i).width();
