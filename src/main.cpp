@@ -17,7 +17,8 @@
 
 // void setup() {
 //   auto cfg = M5.config();
-//     cfg.external_display.unit_oled      = true;  // default=true. use UnitOLED
+//     cfg.external_display.unit_oled      = true;  // default=true. use
+//     UnitOLED
 //   M5.begin(cfg);
 
 //   // Get the number of available displays
@@ -25,7 +26,8 @@
 
 //   for (int i = 0; i < display_count; ++i) {
 //   // All displays are available in M5.Displays.
-//   // ※ Note that the order of which displays are numbered is the order in which they are detected, so the order may change.
+//   // ※ Note that the order of which displays are numbered is the order in
+//   which they are detected, so the order may change.
 
 //     int textsize = M5.Displays(i).height() / 60;
 //     if (textsize == 0) { textsize = 1; }
@@ -78,13 +80,11 @@
 // //   }
 // // }
 
-// void loop() { 
-//   // rainbow(20); 
+// void loop() {
+//   // rainbow(20);
 // }
 
-
-
-#if defined ( ARDUINO )
+#if defined(ARDUINO)
 
 #include <Arduino.h>
 
@@ -103,8 +103,6 @@
 // If you use Unit OLED, write this.
 #include <M5UnitOLED.h>
 
-
-
 // * The display header must be included before the M5Unified library.
 
 //----------------------------------------------------------------
@@ -112,32 +110,30 @@
 // Include this to enable the M5 global instance.
 #include <M5Unified.h>
 
-
-void setup(void)
-{
+void setup(void) {
   auto cfg = M5.config();
 
   // external display setting. (Pre-include required)
-  
-  cfg.external_display.unit_oled      = true;  // default=true. use UnitOLED
-  
 
-/*
- Display with auto-detection
- - module_display
- - atom_display
- - unit_glass
- - unit_oled
- - unit_lcd
+  cfg.external_display.unit_oled = true;  // default=true. use UnitOLED
 
- Displays that cannot be auto-detected
- - module_rca
- - unit_rca
+  /*
+   Display with auto-detection
+   - module_display
+   - atom_display
+   - unit_glass
+   - unit_oled
+   - unit_lcd
 
-※ Note that if you enable a display that cannot be auto-detected, 
-   it will operate as if it were connected, even if it is not actually connected.
-   When RCA is enabled, it consumes a lot of memory to allocate the frame buffer.
-//*/
+   Displays that cannot be auto-detected
+   - module_rca
+   - unit_rca
+
+  ※ Note that if you enable a display that cannot be auto-detected,
+     it will operate as if it were connected, even if it is not actually
+  connected. When RCA is enabled, it consumes a lot of memory to allocate the
+  frame buffer.
+  //*/
 
   // begin M5Unified.
   M5.begin(cfg);
@@ -146,57 +142,55 @@ void setup(void)
   int display_count = M5.getDisplayCount();
 
   for (int i = 0; i < display_count; ++i) {
-  // All displays are available in M5.Displays.
-  // ※ Note that the order of which displays are numbered is the order in which they are detected, so the order may change.
+    // All displays are available in M5.Displays.
+    // ※ Note that the order of which displays are numbered is the order in
+    // which they are detected, so the order may change.
 
     int textsize = M5.Displays(i).height() / 60;
-    if (textsize == 0) { textsize = 1; }
+    if (textsize == 0) {
+      textsize = 1;
+    }
     M5.Displays(i).setTextSize(textsize);
     M5.Displays(i).printf("No.%d\n", i);
   }
 
-
-// If an external display is to be used as the main display, it can be listed in order of priority.
-  M5.setPrimaryDisplayType( {
-      m5::board_t::board_M5ModuleDisplay,
-      m5::board_t::board_M5AtomDisplay,
-//    m5::board_t::board_M5UnitOLED,
-  } );
-
+  // If an external display is to be used as the main display, it can be listed
+  // in order of priority.
+  M5.setPrimaryDisplayType({
+      m5::board_t::board_M5ModuleDisplay, m5::board_t::board_M5AtomDisplay,
+      //    m5::board_t::board_M5UnitOLED,
+  });
 
   // The primary display can be used with M5.Display.
   M5.Display.print("primary display\n");
 
-
   // Examine the indexes of a given type of display
-  int index_module_display = M5.getDisplayIndex(m5::board_t::board_M5ModuleDisplay);
+  int index_module_display =
+      M5.getDisplayIndex(m5::board_t::board_M5ModuleDisplay);
   int index_atom_display = M5.getDisplayIndex(m5::board_t::board_M5AtomDisplay);
   int index_module_rca = M5.getDisplayIndex(m5::board_t::board_M5ModuleRCA);
   int index_unit_glass = M5.getDisplayIndex(m5::board_t::board_M5UnitGLASS);
   int index_unit_oled = M5.getDisplayIndex(m5::board_t::board_M5UnitOLED);
   int index_unit_lcd = M5.getDisplayIndex(m5::board_t::board_M5UnitLCD);
   int index_unit_rca = M5.getDisplayIndex(m5::board_t::board_M5UnitRCA);
-  
+
   if (index_unit_oled >= 0) {
     M5.Displays(index_unit_oled).print("This is Unit OLED\n");
   }
   vTaskDelay(50000);
 }
 
-
-// When creating a function for drawing, it can be used universally by accepting a LovyanGFX type as an argument.
-void draw_function(LovyanGFX* gfx)
-{
+// When creating a function for drawing, it can be used universally by accepting
+// a LovyanGFX type as an argument.
+void draw_function(LovyanGFX* gfx) {
   int x = rand() % gfx->width();
   int y = rand() % gfx->height();
   int r = (gfx->width() >> 4) + 2;
   uint32_t c = rand();
-  gfx->fillRect(x-r, y-r, r*2, r*2, c);
+  gfx->fillRect(x - r, y - r, r * 2, r * 2, c);
 }
 
-
-void loop(void)
-{
+void loop(void) {
   vTaskDelay(1);
 
   for (int i = 0; i < M5.getDisplayCount(); ++i) {
