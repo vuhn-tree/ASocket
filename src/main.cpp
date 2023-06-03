@@ -87,27 +87,12 @@
 #if defined(ARDUINO)
 
 #include <Arduino.h>
-
-// If you use SD card, write this.
 #include <SD.h>
-
-// If you use SPIFFS, write this.
 #include <SPIFFS.h>
 
 #endif
 
-// * The filesystem header must be included before the display library.
-
-//----------------------------------------------------------------
-
-// If you use Unit OLED, write this.
 #include <M5UnitOLED.h>
-
-// * The display header must be included before the M5Unified library.
-
-//----------------------------------------------------------------
-
-// Include this to enable the M5 global instance.
 #include <M5Unified.h>
 
 void setup(void) {
