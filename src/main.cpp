@@ -132,6 +132,7 @@ void setup(void) {
   M5.begin(cfg);
   pixels.begin();  // Init the NeoPixel library
   pixels.setPixelColor(0, 60, 255, 51);
+  pixels.show();
 
   // Get the number of available displays
   int display_count = M5.getDisplayCount();
