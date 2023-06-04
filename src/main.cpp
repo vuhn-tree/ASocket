@@ -98,11 +98,6 @@
 
 
 
-// * The display header must be included before the M5Unified library.
-
-//----------------------------------------------------------------
-
-// Include this to enable the M5 global instance.
 #include <M5Unified.h>
 
 
@@ -161,17 +156,7 @@ void setup(void) {
   // The primary display can be used with M5.Display.
   M5.Display.print("primary display\n");
 
-  // Examine the indexes of a given type of display
-  
-    int index_module_display = M5.getDisplayIndex(m5::board_t::board_M5ModuleDisplay);
-  int index_atom_display = M5.getDisplayIndex(m5::board_t::board_M5AtomDisplay);
-  int index_module_rca = M5.getDisplayIndex(m5::board_t::board_M5ModuleRCA);
-  int index_unit_glass = M5.getDisplayIndex(m5::board_t::board_M5UnitGLASS);
-  int index_unit_oled = M5.getDisplayIndex(m5::board_t::board_M5UnitOLED);
-  int index_unit_lcd = M5.getDisplayIndex(m5::board_t::board_M5UnitLCD);
-  int index_unit_rca = M5.getDisplayIndex(m5::board_t::board_M5UnitRCA);
-
-  // int index_unit_oled = M5.getDisplayIndex(m5::board_t::board_M5UnitOLED);
+  const int index_unit_oled = M5.getDisplayIndex(m5::board_t::board_M5UnitOLED);
   if (index_unit_oled >= 0) {
     M5.Displays(index_unit_oled).print("This is Unit OLED\n");
   }
