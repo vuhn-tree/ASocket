@@ -92,6 +92,8 @@
 
 #endif
 
+#include <M5AtomDisplay.h>
+#include <M5ModuleDisplay.h>
 #include <M5Unified.h>
 #include <M5UnitOLED.h>
 
