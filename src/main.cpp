@@ -162,7 +162,7 @@ void setup(void) {
   if (index_unit_oled >= 0) {
     M5.Displays(index_unit_oled).print("This is Unit OLED\n");
   }
-  vTaskDelay(50000);
+  vTaskDelay(500);
 }
 
 // When creating a function for drawing, it can be used universally by accepting
@@ -176,7 +176,7 @@ void draw_function(LovyanGFX* gfx) {
 }
 
 void loop(void) {
-  vTaskDelay(10);
+  vTaskDelay(1);
 
   for (int i = 0; i < M5.getDisplayCount(); ++i) {
     int x = rand() % M5.Displays(i).width();
