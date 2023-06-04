@@ -92,10 +92,16 @@
 
 #endif
 
+#include <GlobalDefines.h>
+#include <Adafruit_NeoPixel.h>
 #include <M5UnitOLED.h>
 
 // NOTE: include this last
 #include <M5Unified.h>
+
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(
+    NUMPIXELS, PIN,
+    NEO_GRB + NEO_KHZ800);  // set number of LEDs, pin number, LED type.
 
 void setup(void) {
   auto cfg = M5.config();
@@ -124,6 +130,8 @@ void setup(void) {
 
   // begin M5Unified.
   M5.begin(cfg);
+  pixels.begin();  // Init the NeoPixel library
+  pixels.setPixelColor(0, 60, 255, 51);
 
   // Get the number of available displays
   int display_count = M5.getDisplayCount();
