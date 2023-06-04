@@ -92,9 +92,10 @@
 
 #endif
 
-// If you use Unit OLED, write this.
-#include <M5Unified.h>
 #include <M5UnitOLED.h>
+
+// NOTE: include this last
+#include <M5Unified.h>
 
 void setup(void) {
   auto cfg = M5.config();
