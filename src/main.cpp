@@ -177,35 +177,12 @@ void setup(void) {
   M5.Display.print("primary display\n");
 
   // Examine the indexes of a given type of display
-  int index_module_display = M5.getDisplayIndex(m5::board_t::board_M5ModuleDisplay);
-  int index_atom_display = M5.getDisplayIndex(m5::board_t::board_M5AtomDisplay);
-  int index_module_rca = M5.getDisplayIndex(m5::board_t::board_M5ModuleRCA);
-  int index_unit_glass = M5.getDisplayIndex(m5::board_t::board_M5UnitGLASS);
+  
   int index_unit_oled = M5.getDisplayIndex(m5::board_t::board_M5UnitOLED);
-  int index_unit_lcd = M5.getDisplayIndex(m5::board_t::board_M5UnitLCD);
-  int index_unit_rca = M5.getDisplayIndex(m5::board_t::board_M5UnitRCA);
-
-  if (index_module_display >= 0) {
-    M5.Displays(index_module_display).print("This is Module Display\n");
-  }
-  if (index_atom_display >= 0) {
-    M5.Displays(index_atom_display).print("This is Atom Display\n");
-  }
-  if (index_module_rca >= 0) {
-    M5.Displays(index_module_rca).print("This is Module RCA\n");
-  }
-  if (index_unit_glass >= 0) {
-    M5.Displays(index_unit_glass).print("This is Unit GLASS\n");
-  }
   if (index_unit_oled >= 0) {
     M5.Displays(index_unit_oled).print("This is Unit OLED\n");
   }
-  if (index_unit_lcd >= 0) {
-    M5.Displays(index_unit_lcd).print("This is Unit LCD\n");
-  }
-  if (index_unit_rca >= 0) {
-    M5.Displays(index_unit_rca).print("This is Unit RCA\n");
-  }
+  
   vTaskDelay(5000);
 }
 
