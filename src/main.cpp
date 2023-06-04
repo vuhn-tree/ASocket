@@ -145,7 +145,7 @@ void setup(void) {
   // in order of priority.
   M5.setPrimaryDisplayType({
       m5::board_t::board_M5ModuleDisplay, m5::board_t::board_M5AtomDisplay,
-      //    m5::board_t::board_M5UnitOLED,
+         m5::board_t::board_M5UnitOLED,
   });
 
   // The primary display can be used with M5.Display.
