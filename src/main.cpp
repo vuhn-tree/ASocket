@@ -92,14 +92,9 @@
 
 #endif
 
-
 // If you use Unit OLED, write this.
-#include <M5UnitOLED.h>
-
-
-
 #include <M5Unified.h>
-
+#include <M5UnitOLED.h>
 
 void setup(void) {
   auto cfg = M5.config();
@@ -148,7 +143,7 @@ void setup(void) {
   // If an external display is to be used as the main display, it can be listed
   // in order of priority.
   M5.setPrimaryDisplayType({
-      m5::board_t::board_M5ModuleDisplay, 
+      m5::board_t::board_M5ModuleDisplay,
       m5::board_t::board_M5AtomDisplay,
       m5::board_t::board_M5UnitOLED,
   });
@@ -160,7 +155,7 @@ void setup(void) {
   if (index_unit_oled >= 0) {
     M5.Displays(index_unit_oled).print("This is Unit OLED\n");
   }
-  
+
   vTaskDelay(5000);
 }
 
