@@ -92,10 +92,34 @@
 
 #endif
 
+// If you use ATOM Display, write this.
 #include <M5AtomDisplay.h>
+
+// If you use Module Display, write this.
 #include <M5ModuleDisplay.h>
-#include <M5Unified.h>
+
+// If you use Module RCA, write this.
+#include <M5ModuleRCA.h>
+
+// If you use Unit GLASS, write this.
+#include <M5UnitGLASS.h>
+
+// If you use Unit OLED, write this.
 #include <M5UnitOLED.h>
+
+// If you use Unit LCD, write this.
+#include <M5UnitLCD.h>
+
+// If you use Unit RCA (for Video output), write this.
+#include <M5UnitRCA.h>
+
+// * The display header must be included before the M5Unified library.
+
+//----------------------------------------------------------------
+
+// Include this to enable the M5 global instance.
+#include <M5Unified.h>
+
 
 void setup(void) {
   auto cfg = M5.config();
@@ -144,16 +168,16 @@ void setup(void) {
   // If an external display is to be used as the main display, it can be listed
   // in order of priority.
   M5.setPrimaryDisplayType({
-      m5::board_t::board_M5ModuleDisplay, m5::board_t::board_M5AtomDisplay,
-         m5::board_t::board_M5UnitOLED,
+      m5::board_t::board_M5ModuleDisplay, 
+      m5::board_t::board_M5AtomDisplay,
+      m5::board_t::board_M5UnitOLED,
   });
 
   // The primary display can be used with M5.Display.
   M5.Display.print("primary display\n");
 
   // Examine the indexes of a given type of display
-  int index_module_display =
-      M5.getDisplayIndex(m5::board_t::board_M5ModuleDisplay);
+  int index_module_display = M5.getDisplayIndex(m5::board_t::board_M5ModuleDisplay);
   int index_atom_display = M5.getDisplayIndex(m5::board_t::board_M5AtomDisplay);
   int index_module_rca = M5.getDisplayIndex(m5::board_t::board_M5ModuleRCA);
   int index_unit_glass = M5.getDisplayIndex(m5::board_t::board_M5UnitGLASS);
@@ -161,10 +185,28 @@ void setup(void) {
   int index_unit_lcd = M5.getDisplayIndex(m5::board_t::board_M5UnitLCD);
   int index_unit_rca = M5.getDisplayIndex(m5::board_t::board_M5UnitRCA);
 
+  if (index_module_display >= 0) {
+    M5.Displays(index_module_display).print("This is Module Display\n");
+  }
+  if (index_atom_display >= 0) {
+    M5.Displays(index_atom_display).print("This is Atom Display\n");
+  }
+  if (index_module_rca >= 0) {
+    M5.Displays(index_module_rca).print("This is Module RCA\n");
+  }
+  if (index_unit_glass >= 0) {
+    M5.Displays(index_unit_glass).print("This is Unit GLASS\n");
+  }
   if (index_unit_oled >= 0) {
     M5.Displays(index_unit_oled).print("This is Unit OLED\n");
   }
-  vTaskDelay(500);
+  if (index_unit_lcd >= 0) {
+    M5.Displays(index_unit_lcd).print("This is Unit LCD\n");
+  }
+  if (index_unit_rca >= 0) {
+    M5.Displays(index_unit_rca).print("This is Unit RCA\n");
+  }
+  vTaskDelay(5000);
 }
 
 // When creating a function for drawing, it can be used universally by accepting
