@@ -131,7 +131,8 @@ void setup(void) {
   // begin M5Unified.
   M5.begin(cfg);
   pixels.begin();  // Init the NeoPixel library
-  pixels.setPixelColor(0, 60, 255, 51, 100);
+  pixels.setBrightness(10);
+  pixels.setPixelColor(0, 0, 255, 0);
   pixels.show();
 
   // Get the number of available displays
