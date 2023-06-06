@@ -92,8 +92,8 @@
 
 #endif
 
-#include <GlobalDefines.h>
 #include <Adafruit_NeoPixel.h>
+#include <GlobalDefines.h>
 #include <M5UnitOLED.h>
 
 // NOTE: include this last
