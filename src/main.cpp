@@ -19,28 +19,7 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(
 
 void setup(void) {
   auto cfg = M5.config();
-
-  // external display setting. (Pre-include required)
-
-  cfg.external_display.unit_oled = true;  // default=true. use UnitOLED
-
-  /*
-   Display with auto-detection
-   - module_display
-   - atom_display
-   - unit_glass
-   - unit_oled
-   - unit_lcd
-
-   Displays that cannot be auto-detected
-   - module_rca
-   - unit_rca
-
-  ※ Note that if you enable a display that cannot be auto-detected,
-     it will operate as if it were connected, even if it is not actually
-  connected. When RCA is enabled, it consumes a lot of memory to allocate the
-  frame buffer.
-  //*/
+  cfg.external_display.unit_oled = true;
 
   // begin M5Unified.
   M5.begin(cfg);
