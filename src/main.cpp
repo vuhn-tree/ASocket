@@ -23,23 +23,14 @@ void setup(void) {
 
   // begin M5Unified.
   M5.begin(cfg);
+  
   pixels.begin();  // Init the NeoPixel library
   pixels.setBrightness(10);
   pixels.setPixelColor(0, 0, 255, 0);
   pixels.show();
 
-  // Get the number of available displays
-  int display_count = M5.getDisplayCount();
-
-  M5.Displays(0).setTextSize(1);
-
-  // The primary display can be used with M5.Display.
+  M5.Display.setTextSize(1);
   M5.Display.print("primary display\n");
-
-  const int index_unit_oled = M5.getDisplayIndex(m5::board_t::board_M5UnitOLED);
-  if (index_unit_oled >= 0) {
-    M5.Displays(index_unit_oled).printf("This is Unit OLED num: %d\n", index_unit_oled);
-  }
 
   vTaskDelay(5000);
 }
