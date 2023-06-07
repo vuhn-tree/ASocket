@@ -31,25 +31,14 @@ void setup(void) {
   // Get the number of available displays
   int display_count = M5.getDisplayCount();
 
-  for (int i = 0; i < display_count; ++i) {
-    M5.Displays(i).setTextSize(1);
-    M5.Displays(i).printf("No.%d\n", i);
-  }
-
-  // If an external display is to be used as the main display, it can be listed
-  // in order of priority.
-  M5.setPrimaryDisplayType({
-      m5::board_t::board_M5ModuleDisplay,
-      m5::board_t::board_M5AtomDisplay,
-      m5::board_t::board_M5UnitOLED,
-  });
+  M5.Displays(0).setTextSize(1);
 
   // The primary display can be used with M5.Display.
   M5.Display.print("primary display\n");
 
   const int index_unit_oled = M5.getDisplayIndex(m5::board_t::board_M5UnitOLED);
   if (index_unit_oled >= 0) {
-    M5.Displays(index_unit_oled).print("This is Unit OLED\n");
+    M5.Displays(index_unit_oled).printf("This is Unit OLED num: %d\n", index_unit_oled);
   }
 
   vTaskDelay(5000);
