@@ -23,7 +23,7 @@ void setup(void) {
 
   // begin M5Unified.
   M5.begin(cfg);
-  
+
   pixels.begin();  // Init the NeoPixel library
   pixels.setBrightness(10);
   pixels.setPixelColor(0, 0, 255, 0);
@@ -37,7 +37,7 @@ void setup(void) {
 
 // When creating a function for drawing, it can be used universally by accepting
 // a LovyanGFX type as an argument.
-void draw_function(LovyanGFX* gfx) {
+void draw_function(LovyanGFX* const gfx) {
   int x = rand() % gfx->width();
   int y = rand() % gfx->height();
   int r = (gfx->width() >> 4) + 2;
@@ -49,9 +49,9 @@ void loop(void) {
   vTaskDelay(100);
 
   for (int i = 0; i < M5.getDisplayCount(); ++i) {
-    int x = rand() % M5.Displays(i).width();
-    int y = rand() % M5.Displays(i).height();
-    int r = (M5.Displays(i).width() >> 4) + 2;
+    const int x = rand() % M5.Displays(i).width();
+    const int y = rand() % M5.Displays(i).height();
+    const int r = (M5.Displays(i).width() >> 4) + 2;
     uint32_t c = rand();
     M5.Displays(i).fillCircle(x, y, r, c);
   }
