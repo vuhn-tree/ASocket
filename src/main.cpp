@@ -30,6 +30,7 @@ void setup(void) {
   pixels.show();
 
   M5.Display.setTextSize(1);
+  M5.Display.setRotation(3);
   M5.Display.print("primary display\n");
 
   vTaskDelay(5000);
@@ -48,15 +49,15 @@ void draw_function(LovyanGFX* const gfx) {
 void loop(void) {
   vTaskDelay(100);
 
-  for (int i = 0; i < M5.getDisplayCount(); ++i) {
-    const int x = rand() % M5.Displays(i).width();
-    const int y = rand() % M5.Displays(i).height();
-    const int r = (M5.Displays(i).width() >> 4) + 2;
-    uint32_t c = rand();
-    M5.Displays(i).fillCircle(x, y, r, c);
-  }
+  // for (int i = 0; i < M5.getDisplayCount(); ++i) {
+  //   const int x = rand() % M5.Displays(i).width();
+  //   const int y = rand() % M5.Displays(i).height();
+  //   const int r = (M5.Displays(i).width() >> 4) + 2;
+  //   uint32_t c = rand();
+  //   M5.Displays(i).fillCircle(x, y, r, c);
+  // }
 
-  for (int i = 0; i < M5.getDisplayCount(); ++i) {
-    draw_function(&M5.Displays(i));
-  }
+  // for (int i = 0; i < M5.getDisplayCount(); ++i) {
+  //   draw_function(&M5.Displays(i));
+  // }
 }
