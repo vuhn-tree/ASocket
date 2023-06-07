@@ -32,15 +32,7 @@ void setup(void) {
   int display_count = M5.getDisplayCount();
 
   for (int i = 0; i < display_count; ++i) {
-    // All displays are available in M5.Displays.
-    // ※ Note that the order of which displays are numbered is the order in
-    // which they are detected, so the order may change.
-
-    int textsize = M5.Displays(i).height() / 60;
-    if (textsize == 0) {
-      textsize = 1;
-    }
-    M5.Displays(i).setTextSize(textsize);
+    M5.Displays(i).setTextSize(1);
     M5.Displays(i).printf("No.%d\n", i);
   }
 
