@@ -31,7 +31,7 @@ void setup(void) {
 
   M5.Display.setTextSize(1);
   M5.Display.setRotation(3);
-  M5.Display.print("primary display\n");
+  M5.Display.print("Test 1\n");
 
   vTaskDelay(5000);
 }
