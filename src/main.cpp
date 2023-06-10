@@ -32,6 +32,7 @@ void setup(void) {
   M5.Display.setTextSize(1);
   M5.Display.setRotation(3);
   M5.Display.print("Test 1\n");
+  M5.Display.print("New line\n");
 
   vTaskDelay(5000);
 }
