@@ -55,7 +55,7 @@ void loop(void) {
   //   const int y = rand() % M5.Displays(i).height();
   //   const int r = (M5.Displays(i).width() >> 4) + 2;
   //   uint32_t c = rand();
-  M5.Display.fillCircle(40, 40, 10, 3);
+  M5.Display.fillCircle(50, 50, 10, 3);
   // }
 
   // for (int i = 0; i < M5.getDisplayCount(); ++i) {
