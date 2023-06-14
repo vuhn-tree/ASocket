@@ -50,15 +50,6 @@ void draw_function(LovyanGFX* const gfx) {
 void loop(void) {
   vTaskDelay(100);
 
-  // for (int i = 0; i < M5.getDisplayCount(); ++i) {
-  //   const int x = rand() % M5.Displays(i).width();
-  //   const int y = rand() % M5.Displays(i).height();
-  //   const int r = (M5.Displays(i).width() >> 4) + 2;
-  //   uint32_t c = rand();
   M5.Display.fillCircle(50, 50, 10, 3);
-  // }
 
-  // for (int i = 0; i < M5.getDisplayCount(); ++i) {
-  //   draw_function(&M5.Displays(i));
-  // }
 }
