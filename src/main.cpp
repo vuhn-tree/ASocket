@@ -50,6 +50,6 @@ void draw_function(LovyanGFX* const gfx) {
 void loop(void) {
   vTaskDelay(100);
 
-  M5.Display.fillCircle(50, 50, 10, 3);
+  M5.Display.fillCircle(0, 0, 10, 255);
 
 }
