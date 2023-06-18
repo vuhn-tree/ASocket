@@ -51,5 +51,6 @@ void loop(void) {
   vTaskDelay(100);
 
   M5.Display.fillCircle(0, 0, 10, 255);
+  M5.Display.drawCircle(10, 10, 10, 255);
 
 }
