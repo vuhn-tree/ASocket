@@ -30,8 +30,10 @@ void setup(void) {
   pixels.show();
 
   M5.Display.setTextSize(1);
+
+  // MUST SET ROTATION TO 3, other options overlap
   M5.Display.setRotation(3);
-  M5.Display.print("Test 1\n");
+
   M5.Display.print("New line\n");
 
   vTaskDelay(5000);
