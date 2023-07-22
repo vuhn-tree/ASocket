@@ -33,14 +33,11 @@ void setup(void) {
 
   // MUST SET ROTATION TO 3, other options overlap
   M5.Display.setRotation(3);
-
   M5.Display.print("New line\n");
 
   vTaskDelay(5000);
 }
 
-// When creating a function for drawing, it can be used universally by accepting
-// a LovyanGFX type as an argument.
 void draw_function(LovyanGFX* const gfx) {
   int x = rand() % gfx->width();
   int y = rand() % gfx->height();
@@ -54,5 +51,4 @@ void loop(void) {
 
   M5.Display.fillCircle(0, 0, 10, 255);
   M5.Display.drawCircle(10, 10, 10, 255);
-
 }
