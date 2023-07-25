@@ -33,7 +33,8 @@ void setup(void) {
 
   // MUST SET ROTATION TO 3, other options overlap
   M5.Display.setRotation(3);
-  M5.Display.print("New line\n");
+  M5.Display.print("Power\n");
+  M5.Display.print("Disp Watts\n");
 
   vTaskDelay(5000);
 }
